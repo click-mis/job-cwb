@@ -25,11 +25,12 @@ ADD trunk /var/www/html
 # Simple startup script to avoid some issues observed with container restart
 ADD entrypoint /usr/local/entrypoint
 RUN chmod -v +x /usr/local/entrypoint \
- && ln -sf /dev/stdout /var/log/httpd/access_log \
- && ln -sf /dev/stderr /var/log/httpd/error_log \
  && mkdir -p /var/moodledata \
  && chown -R docker:apache /var/www/html/ \
- && chown -R docker:apache /var/moodledata/
+ && chown -R docker:apache /var/moodledata/ \
+ && ln -sf /dev/stdout /var/log/httpd/access_log \
+ && ln -sf /dev/stderr /var/log/httpd/error_log
+
 
 USER docker
 
