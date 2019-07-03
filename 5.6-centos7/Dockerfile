@@ -18,21 +18,19 @@ RUN sed -i \
  -e 's/max_input_time = 60/max_input_time = 600/g' \
  -e 's/memory_limit = 128M/memory_limit = 1024M/g' /etc/php.ini
 
+VOLUME ["/var/moodledata"]
+
 ADD trunk /var/www/html
 
 # Simple startup script to avoid some issues observed with container restart
 ADD entrypoint /usr/local/entrypoint
 RUN chmod -v +x /usr/local/entrypoint \
- && mkdir -p /var/moodledata \
- && chown -R docker:apache /var/www/html \
- && chown -R docker:apache /var/moodledata \
+ && chown -R docker:apache /var/www/html/ \
  && ln -sf /dev/stdout /var/log/httpd/access_log \
  && ln -sf /dev/stderr /var/log/httpd/error_log
 
 
 USER docker
-
-VOLUME ["/var/moodledata"]
 
 EXPOSE 80
 WORKDIR /var/www/html
