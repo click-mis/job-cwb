@@ -2,7 +2,7 @@
 set -e
 
 sudo chown -R docker:apache /var/moodledata/
-sudo chmod -R 755 /var/moodledata/
+sudo chmod -R 775 /var/moodledata/
 
 #start up cron
 #/usr/sbin/cron
