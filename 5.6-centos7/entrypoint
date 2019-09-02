@@ -5,7 +5,7 @@ sudo chown -R docker:apache /var/moodledata/
 sudo chmod -R 775 /var/moodledata/
 
 #start up cron
-#/usr/sbin/cron
+/sbin/crond
 
 # Make sure we're not confused by old, incompletely-shutdown httpd context after restarting the container.
 # httpd won't start correctly if it thinks it is already running. ref: https://github.com/CentOS/CentOS-Dockerfiles/blob/master/httpd/centos7/run-httpd.sh
