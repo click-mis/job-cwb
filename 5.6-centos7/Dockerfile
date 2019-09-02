@@ -8,6 +8,7 @@ USER root
 
 RUN yum update -y \
  && yum install -y php-opcache php-ldap \
+ && yum install -y crontabs \
  && yum clean all
 
 RUN sed -i \
