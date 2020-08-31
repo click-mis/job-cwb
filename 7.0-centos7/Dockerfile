@@ -27,6 +27,8 @@ ADD trunk /var/www/html
 ADD entrypoint /usr/local/entrypoint
 RUN chmod -v +x /usr/local/entrypoint \
  && chown -R docker:apache /var/www/html/ \
+ && chown -R docker:apache /var/moodledata/ \
+ && chmod -R 775 /var/moodledata/ \
  && ln -sf /dev/stdout /var/log/httpd/access_log \
  && ln -sf /dev/stderr /var/log/httpd/error_log
 

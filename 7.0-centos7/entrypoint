@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-sudo chown -R docker:apache /var/moodledata/
-sudo chmod -R 775 /var/moodledata/
-
 #start up cron
 sudo /sbin/crond
 
